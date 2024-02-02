@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cara 2 Buat Qrcode</title>
+
+    <!-- Gunakan CDN untuk qrcode.js -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <form id="qrForm">
+        <label for="inputData">Masukkan data atau URL:</label>
+        <input type="text" id="inputData" name="inputData" required />
+        <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+      </form>
+    </div>
+
+    <div id="qrcode"></div>
+
+    <script>
+      function generateQRCode() {
+        let inputData = document.getElementById('inputData').value;
+
+        let qrcode = new QRCode(qrcodeContainer, {
+          text: inputData,
+          width: 128,
+          height: 128,
+        });
+      }
+      let qrcodeContainer = document.getElementById('qrcode');
+    </script>
+  </body>
+</html>
